@@ -5,6 +5,7 @@ const ADD = 'ADD';
 const REMOVE = 'REMOVE';
 
 const REMOVEB = 'REMOVEB';
+
 export type Exhibition = {
   title: string;
   imageUrl: string;
@@ -41,6 +42,7 @@ const Reducer = (state = initialState, action: any) => {
       return state.filter((exhibition: Exhibition) => exhibition.id !== action.payload);
     case REMOVEB:
       return state.filter((exhibition: Exhibition) => exhibition !== action.payload);
+
     default:
       return state;
   }
@@ -49,34 +51,3 @@ const Reducer = (state = initialState, action: any) => {
 const store = createStore(Reducer);
 
 export default store;
-
-// export const TOGGLE = 'TOGGLE';
-
-// export interface ToggleStarAction {
-//   type: typeof TOGGLE;
-// }
-
-// export const toggleStar = (): ToggleStarAction => ({
-//   type: TOGGLE,
-// });
-// interface State {
-//   starred: boolean;
-// }
-
-// const initialState: State = {
-//   starred: false,
-// };
-
-// const rootReducer = (state: State = initialState, action: ToggleStarAction): State => {
-//   switch (action.type) {
-//     case TOGGLE:
-//       return {
-//         ...state,
-//         starred: !state.starred,
-//       };
-//     default:
-//       return state;
-//   }
-// };
-
-// export default rootReducer;

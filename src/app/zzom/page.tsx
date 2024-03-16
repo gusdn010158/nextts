@@ -1,7 +1,7 @@
 'use client';
 import { useSelector, useDispatch } from 'react-redux';
 import styles from '../main.module.css';
-import { add, removeb, Exhibition } from '@/redux/store';
+import { remove, Exhibition } from '@/redux/store';
 import Link from 'next/link';
 import { IoMdStar } from 'react-icons/io';
 import { IoIosStarOutline } from 'react-icons/io';
@@ -9,15 +9,10 @@ import { IoIosStarOutline } from 'react-icons/io';
 const zzom: React.FC<{ exhibition: Exhibition }> = ({ exhibition }) => {
   const dispatch = useDispatch();
   const favorites = useSelector((state: Exhibition[]) => state);
-
   const isFavorite = favorites.some((fav: Exhibition) => fav === exhibition);
 
-  const handleStarClick = () => {
-    if (isFavorite) {
-      dispatch(removeb(exhibition));
-    } else {
-      dispatch(add(exhibition));
-    }
+  const handleRemove = (id: number) => {
+    dispatch(remove(id));
   };
   return (
     <div className={styles.main}>
@@ -33,7 +28,9 @@ const zzom: React.FC<{ exhibition: Exhibition }> = ({ exhibition }) => {
             <Link href={`/reservation/${exhibition.id}`} className={styles.button}>
               예매 하기
             </Link>
-            <div onClick={handleStarClick}>{isFavorite ? <IoIosStarOutline /> : <IoMdStar />}</div>
+            <div onClick={() => handleRemove(exhibition.id)}>
+              <IoMdStar />
+            </div>
           </div>
         ))
       )}
