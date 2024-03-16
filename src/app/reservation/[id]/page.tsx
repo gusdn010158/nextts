@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { add, removeb, Exhibition } from '@/redux/store';
 import { IoMdStar } from 'react-icons/io';
 import { IoIosStarOutline } from 'react-icons/io';
+import { BsArrowLeft } from 'react-icons/bs';
 export default function Reservation({ params: { id } }: { params: { id: string } }) {
   const exhibition = dummyExhibitionList.find((exhibition) => exhibition.id === parseInt(id));
   const dispatch = useDispatch();
@@ -33,20 +34,25 @@ export default function Reservation({ params: { id } }: { params: { id: string }
   return (
     <div className={styles.reservation}>
       <div className={styles.reservationin}>
-        <Link href="/">홈으로</Link>
+        <div className={styles.reLink}>
+          <BsArrowLeft />
+          <Link href="/">홈으로</Link>
+        </div>
         <img alt="오류" src={exhibition.imageUrl} />
         <h1>{exhibition.title}</h1>
 
         <p>가격: {exhibition.price}원</p>
         <div>{exhibition.place}</div>
-        <p>{exhibition.date.started}</p>
-        <p>{exhibition.date.ended}</p>
-        <div>
-          <div className={styles.right} onClick={handleStarClick}>
-            {isFavorite ? <IoMdStar /> : <IoIosStarOutline />}
+        <div className={styles.resene}>
+          <div>
+            {exhibition.date.started}~{exhibition.date.ended}
           </div>
+          <div onClick={handleStarClick}>{isFavorite ? <IoMdStar /> : <IoIosStarOutline />}</div>
         </div>
-        <button onClick={handleClick}>예매 하기</button>
+
+        <button className={styles.rebu} onClick={handleClick}>
+          예매 하기
+        </button>
       </div>
     </div>
   );

@@ -26,8 +26,11 @@ const Item: React.FC<{ exhibition: Exhibition }> = ({ exhibition }) => {
         <div>{exhibition.title}</div>
         <div>{exhibition.place}(장소이름)</div>
         <div>{exhibition.price}원</div>
+        <div>
+          {exhibition.date.started}~{exhibition.date.ended}
+        </div>
       </div>
-      <div>
+      <div className={styles.Itembottom}>
         <div className={styles.right} onClick={handleStarClick}>
           {isFavorite ? <IoMdStar /> : <IoIosStarOutline />}
         </div>

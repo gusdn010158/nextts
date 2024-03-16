@@ -1,7 +1,6 @@
 .reservation img {
-  border-radius: 15px;
-  height: 500px;
-  width: 500px;
+  height: 800px;
+  width: 1000px;
 }
 .reservation {
   display: Flex;
@@ -9,8 +8,26 @@
   align-items: center;
 }
 .reservationin {
-  height: 1000px;
+  height: 1200px;
   width: 1000px;
   display: flex;
   flex-direction: column;
+}
+.reLink {
+  width: 1000px;
+  height: 60px;
+  text-decoration: none;
+}
+.reLink a {
+  text-decoration: none;
+  color: black;
+}
+.resene {
+  display: flex;
+  justify-content: space-between;
+}
+.rebu {
+  height: 50px;
+  background-color: rgb(236, 163, 4);
+  color: white;
 }

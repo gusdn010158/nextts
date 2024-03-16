@@ -17,13 +17,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
           <div className={styles.bottom}>
             <div className={styles.bottomcomp}>
-              <div>
+              <div className={styles.Link}>
                 <FaTicketAlt />
-                <Link href="/">전시회</Link>
+                <Link href="/" style={{ textDecoration: 'none', color: 'black' }}>
+                  전시회
+                </Link>
               </div>
-              <div>
+              <div className={styles.Link}>
                 <IoMdStar />
-                <Link href="/zzom">찜목록</Link>
+                <Link href="/zzom" style={{ textDecoration: 'none', color: 'black' }}>
+                  찜목록
+                </Link>
               </div>
             </div>
           </div>
