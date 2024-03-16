@@ -1,27 +1,17 @@
 'use client';
 import { useEffect, useState } from 'react';
-
+import { Exhibition } from '@/redux/store';
 import Item from './Item';
 import { getApiExhibitionList } from '../apis/index.ts';
-import { IoMdStar } from 'react-icons/io';
-import { FaTicketAlt } from 'react-icons/fa';
-import Link from 'next/link';
-import styles from '../app/main.module.css';
-type Exhibition = {
-  title: string;
-  imageUrl: string;
-  place: string;
-  price: number;
-  id: number;
-};
 
-export default function Home() {
+import styles from '../app/main.module.css';
+
+const Home: React.FC<Exhibition> = () => {
   const [exhibitionList, setExhibitionList] = useState<Exhibition[]>([]);
 
   useEffect(() => {
-    // API 호출
     getApiExhibitionList()
-      .then((exhibitionList: Exhibition[]) => {
+      .then((exhibitionList) => {
         setExhibitionList(exhibitionList);
       })
       .catch((error) => {
@@ -38,18 +28,7 @@ export default function Home() {
           ))}
         </div>
       </div>
-      <div className={styles.bottom}>
-        <div className={styles.bottomcomp}>
-          <div>
-            <FaTicketAlt />
-            <Link href="/">전시회</Link>
-          </div>
-          <div>
-            <IoMdStar />
-            <Link href="/zzom">찜목록</Link>
-          </div>
-        </div>
-      </div>
     </>
   );
-}
+};
+export default Home;

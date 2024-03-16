@@ -1,29 +1,20 @@
 'use client';
 import { useSelector, useDispatch } from 'react-redux';
 import styles from '../main.module.css';
-import { add, remove } from '@/redux/store';
+import { add, removeb, Exhibition } from '@/redux/store';
 import Link from 'next/link';
 import { IoMdStar } from 'react-icons/io';
 import { IoIosStarOutline } from 'react-icons/io';
 
-export type Exhibition = {
-  title: string;
-  imageUrl: string;
-  place: string;
-  price: number;
-  id: number;
-};
 const zzom: React.FC<{ exhibition: Exhibition }> = ({ exhibition }) => {
   const dispatch = useDispatch();
   const favorites = useSelector((state: Exhibition[]) => state);
 
-  // 해당 전시회가 favorites에 있는지 확인
-  const isFavorite = favorites.some((fav: Exhibition) => fav.id === exhibition?.id);
+  const isFavorite = favorites.some((fav: Exhibition) => fav === exhibition);
 
-  // onClick 핸들러를 Redux 스토어로 변경
   const handleStarClick = () => {
     if (isFavorite) {
-      dispatch(remove(exhibition?.id)); // 이미 찜된 상태이면 제거
+      dispatch(removeb(exhibition));
     } else {
       dispatch(add(exhibition));
     }
