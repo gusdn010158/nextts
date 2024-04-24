@@ -18,6 +18,27 @@
   justify-content: space-between;
   margin-bottom: 20px;
 }
+.componentdiv {
+  display: flex;
+  width: 300px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.component1 {
+  font-size: 18px;
+  font-weight: 600;
+}
+.component2 {
+  font-size: 14px;
+  color: gray;
+}
+.component3 {
+  color: red;
+}
+.component4 {
+  font-size: 14px;
+  color: gray;
+}
 .main div img {
   border-radius: 15px;
   height: 100px;
@@ -25,6 +46,12 @@
 }
 .button {
   background-color: black;
+  width: 75px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25px;
   color: white;
   text-decoration: none;
   border-radius: 5px;
@@ -46,6 +73,9 @@
 .right {
   display: flex;
   flex-direction: column;
+  font-size: 20px;
+  color: rgb(179, 179, 37);
+  align-items: flex-end;
   justify-content: space-around;
 }
 .Itembottom {

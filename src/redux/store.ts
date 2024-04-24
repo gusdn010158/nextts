@@ -4,7 +4,7 @@ const ADD = 'ADD';
 
 const REMOVE = 'REMOVE';
 
-const REMOVEB = 'REMOVEB';
+const REMOVEID = 'REMOVEID';
 
 export type Exhibition = {
   title: string;
@@ -22,13 +22,13 @@ export const add = (exhibition: Exhibition) => ({
   type: ADD,
   payload: exhibition,
 });
-export const removeb = (exhibition: Exhibition) => ({
-  type: REMOVEB,
+export const remove = (exhibition: Exhibition) => ({
+  type: REMOVE,
   payload: exhibition,
 });
 
-export const remove = (id: number) => ({
-  type: REMOVE,
+export const removeid = (id: number) => ({
+  type: REMOVEID,
   payload: id,
 });
 
@@ -38,11 +38,10 @@ const Reducer = (state = initialState, action: any) => {
   switch (action.type) {
     case ADD:
       return [...state, action.payload];
-    case REMOVE:
+    case REMOVEID:
       return state.filter((exhibition: Exhibition) => exhibition.id !== action.payload);
-    case REMOVEB:
+    case REMOVE:
       return state.filter((exhibition: Exhibition) => exhibition !== action.payload);
-
     default:
       return state;
   }
