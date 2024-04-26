@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { Exhibition } from '@/redux/store';
-import Item from './Item';
+import Item from './Item/Item.tsx';
 import { getApiExhibitionList } from '../apis/index.ts';
 
 import styles from '../app/main.module.css';

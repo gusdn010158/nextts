@@ -1,9 +1,10 @@
 import Link from 'next/link';
-import styles from '../app/main.module.css';
+import styles from '../main.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { add, removeid, Exhibition } from '../redux/store';
+import { add, removeid, Exhibition } from '../../redux/store';
 import { IoMdStar } from 'react-icons/io';
 import { IoIosStarOutline } from 'react-icons/io';
+import Itemcom from './Itemcom';
 
 const Item: React.FC<{ exhibition: Exhibition }> = ({ exhibition }) => {
   const dispatch = useDispatch();
@@ -22,15 +23,7 @@ const Item: React.FC<{ exhibition: Exhibition }> = ({ exhibition }) => {
 
   return (
     <div className={styles.component}>
-      <img alt="오류" src={exhibition.imageUrl} />
-      <div className={styles.componentdiv}>
-        <div className={styles.component1}>{exhibition.title}</div>
-        <div className={styles.component2}>{exhibition.place}(장소이름)</div>
-        <div className={styles.component3}>{exhibition.price}원</div>
-        <div className={styles.component4}>
-          {exhibition.date.started}~{exhibition.date.ended}
-        </div>
-      </div>
+      <Itemcom exhibition={exhibition} />
       <div className={styles.Itembottom}>
         <div className={styles.right} onClick={handleStarClick}>
           {isFavorite ? <IoMdStar /> : <IoIosStarOutline />}
