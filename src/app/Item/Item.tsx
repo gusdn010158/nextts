@@ -47,7 +47,7 @@ import Itemcom from './Itemcom';
 
 const Item: React.FC<{ exhibition: Exhibition }> = ({ exhibition }) => {
   const dispatch = useDispatch();
-  const favorites = useSelector((state: { favorites: Exhibition[] }) => state.favorites);
+  const favorites = useSelector((state: { favorites: Exhibition[] }) => state.favorites) || []; // 기본값 추가
 
   const isFavorite = favorites.some((fav: Exhibition) => fav.id === exhibition.id);
 
