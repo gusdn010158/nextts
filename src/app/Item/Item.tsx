@@ -8,8 +8,8 @@ import Itemcom from './Itemcom';
 
 const Item: React.FC<{ exhibition: Exhibition }> = ({ exhibition }) => {
   const dispatch = useDispatch();
-  const favorites = useSelector((state: Exhibition[]) => state);
-
+  // const favorites = useSelector((state: Exhibition[]) => state);
+  const favorites = useSelector((state: { favorites: Exhibition[] }) => state.favorites);
   const isFavorite = favorites.some((fav: Exhibition) => fav.id === exhibition.id);
   //some()매서드는 주어진 function을 하나라도 통과하는 배열의 element가 있으면 true를 반환하고 그렇지 않으면 false를 반환
 
